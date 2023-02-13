@@ -13,7 +13,7 @@ Install kustomize:
 File system approach :
 
 ```
-├── someapp
+└── someapp
     ├── base
     │   ├── deployment.yaml
     │   ├── kustomization.yaml
@@ -24,7 +24,7 @@ File system approach :
         |   |    ├── deployment.yaml
         │   |    └── kustomization.yaml
         |   |
-        |   └── region 1
+        |   ├── region 1
         |   |     ├── patches
         |   |     |    ├── deployment.yaml
         │   │     |    └── kustomization.yaml
