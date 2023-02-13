@@ -20,9 +20,14 @@ File system approach :
     │   └── service.yaml
     └── overlays
         ├── dev
-        │   ├── deployment.yaml
-        │   └── kustomization.yaml
-        ├── preprod
+        │   ├── patches
+        |   |    ├── deployment.yaml
+        │   |    └── kustomization.yaml
+        |   |
+        |   └── regione
+        |        └── 
+        |
+        ├── preprod
         │   ├── deployment.yaml
         │   └── kustomization.yaml
         └── production
