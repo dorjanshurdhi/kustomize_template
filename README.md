@@ -13,171 +13,73 @@ Install kustomize:
 File system approach :
 
 ```
-└── someapp
-    ├── base
-    │   ├── deployment.yaml
-    │   ├── kustomization.yaml
-    │   └── service.yaml
-    └── overlays
-        ├── dev
-        │   ├── patches
-        |   |    ├── deployment.yaml
-        │   |    └── kustomization.yaml
-        |   |
-        |   ├── region 1
-        |   |     ├── patches
-        |   |     |    ├── deployment.yaml
-        │   │     |    └── kustomization.yaml
-        |   |     | 
-        |   |     ├── province 1
-        |   |     |    ├── patches
-        |   |     |    ├── deployment.yaml
-        │   │     |    ├── kustomization.yaml
-        |   |     |    ├── municipality 1 
-        |   |     |    |    ├── patches
-        |   |     |    |    ├── deployment.yaml
-        |   |     |    |    |
-        │   │     |    |    └── kustomization.yaml
-        |   |     |    |
-        |   |     |    ├── municipality 2 
-        |   |     |    |    ├── patches
-        |   |     |    |    ├── deployment.yaml
-        │   │     |    |    |
-        |   |     |    |    └── kustomization.yaml
-        |   |     |    |
-        |   |     |    └── municipality n 
-        |   |     |              ├── patches
-        |   |     |              ├── deployment.yaml
-        │   │     |              └── kustomization.yaml
-        |   |     |
-        |   |     |
-        |   |     ├── province 2
-        |   |     |    ├── patches
-        |   |     |    ├── deployment.yaml
-        │   │     |    ├── kustomization.yaml
-        |   |     |    ├── municipality 1 
-        |   |     |    |    ├── patches
-        |   |     |    |    ├── deployment.yaml
-        |   |     |    |    |
-        │   │     |    |    └── kustomization.yaml
-        |   |     |    |
-        |   |     |    ├── municipality 2 
-        |   |     |    |    ├── patches
-        |   |     |    |    ├── deployment.yaml
-        │   │     |    |    |
-        |   |     |    |    └── kustomization.yaml
-        |   |     |    |
-        |   |     |    └── municipality n 
-        |   |     |              ├── patches
-        |   |     |              ├── deployment.yaml
-        │   │     |              └── kustomization.yaml
-        |   |     |
-        |   |     ├── province n
-        |   |     |    ├── patches
-        |   |     |    ├── deployment.yaml
-        │   │     |    ├── kustomization.yaml
-        |   |     |    ├── municipality 1 
-        |   |     |    |    ├── patches
-        |   |     |    |    ├── deployment.yaml
-        |   |     |    |    |
-        │   │     |    |    └── kustomization.yaml
-        |   |     |    |
-        |   |     |    ├── municipality 2 
-        |   |     |    |    ├── patches
-        |   |     |    |    ├── deployment.yaml
-        │   │     |    |    |
-        |   |     |    |    └── kustomization.yaml
-        |   |     |    |
-        |   |     |    └── municipality n 
-        |   |     |              ├── patches
-        |   |     |              ├── deployment.yaml
-        │   │     |              └── kustomization.yaml
-        |   |     | 
-        |   |     |
-        |   |     └── kustomization.yaml
-        |   |
-        |   |
-        |   |
-        |   └── region 2
-        |        ├── patches
-        |        |    ├── deployment.yaml
-        │        |    └── kustomization.yaml
-        |        | 
-        |        ├── province 1
-        |        |    ├── patches
-        |        |    ├── deployment.yaml
-        │        |    ├── kustomization.yaml
-        |        |    ├── municipality 1 
-        |        |    |    ├── patches
-        |        |    |    ├── deployment.yaml
-        |        |    |    |
-        │        |    |    └── kustomization.yaml
-        |        |    |
-        |        |    ├── municipality 2 
-        |        |    |    ├── patches
-        |        |    |    ├── deployment.yaml
-        │        |    |    |
-        |        |    |    └── kustomization.yaml
-        |        |    |
-        |        |    └── municipality n 
-        |        |              ├── patches
-        |        |              ├── deployment.yaml
-        │        |              └── kustomization.yaml
-        |        |
-        |        |
-        |        ├── province 2
-        |        |    ├── patches
-        |        |    ├── deployment.yaml
-        │        |    ├── kustomization.yaml
-        |        |    ├── municipality 1 
-        |        |    |    ├── patches
-        |        |    |    ├── deployment.yaml
-        |        |    |    |
-        │        |    |    └── kustomization.yaml
-        |        |    |
-        |        |    ├── municipality 2 
-        |        |    |    ├── patches
-        |        |    |    ├── deployment.yaml
-        │        |    |    |
-        |        |    |    └── kustomization.yaml
-        |        |    |
-        |        |    └── municipality n 
-        |        |              ├── patches
-        |        |              ├── deployment.yaml
-        │        |              └── kustomization.yaml
-        |        |
-        |        ├── province n
-        |        |    ├── patches
-        |        |    ├── deployment.yaml
-        │        |    ├── kustomization.yaml
-        |        |    ├── municipality 1 
-        |        |    |    ├── patches
-        |        |    |    ├── deployment.yaml
-        |        |    |    |
-        │        |    |    └── kustomization.yaml
-        |        |    |
-        |        |    ├── municipality 2 
-        |        |    |    ├── patches
-        |        |    |    ├── deployment.yaml
-        │        |    |    |
-        |        |    |    └── kustomization.yaml
-        |        |    |
-        |        |    └── municipality n 
-        |        |              ├── patches
-        |        |              ├── deployment.yaml
-        │        |              └── kustomization.yaml
-        |        | 
-        |        |
-        |        └── kustomization.yaml
-        |
-        |
-        ...............................................
-        ├── preprod
-        │   ├── deployment.yaml
-        │   └── kustomization.yaml
-        └── production
-            ├── deployment.yaml
-            └── kustomization.yaml
+└── project-name
+     ├── dev
+     │   ├── base
+     │   │   ├── deployment.yaml
+     │   │   ├── kustomization.yaml
+     │   │   └── service.yaml
+     │   ├── municipality
+     │   │   └── monterotondo
+     │   │       ├── kustomization.yaml
+     │   │       └── patches
+     │   │           └── deployment.yaml
+     │   ├── province
+     │   │   └── roma
+     │   │       ├── kustomization.yaml
+     │   │       └── patches
+     │   │           └── deployment.yaml
+     │   └── region
+     │       ├── base
+     │       │   └── kustomization.yaml
+     │       └── lazio
+     │           ├── kustomization.yaml
+     │           └── patches
+     │               └── deployment.yaml
+     ├── preprod
+     │   ├── base
+     │   │   ├── deployment.yaml
+     │   │   ├── kustomization.yaml
+     │   │   └── service.yaml
+     │   ├── municipality
+     │   │   └── monterotondo
+     │   │       ├── kustomization.yaml
+     │   │       └── patches
+     │   │           └── deployment.yaml
+     │   ├── province
+     │   │   └── roma
+     │   │       ├── kustomization.yaml
+     │   │       └── patches
+     │   │           └── deployment.yaml
+     │   └── region
+     │       ├── base
+     │       │   └── kustomization.yaml
+     │       └── lazio
+     │           ├── kustomization.yaml
+     │           └── patches
+     │               └── deployment.yaml
+     └── prod
+         ├── base
+         │   ├── deployment.yaml
+         │   ├── kustomization.yaml
+         │   └── service.yaml
+         ├── municipality
+         │   └── monterotondo
+         │       ├── kustomization.yaml
+         │       └── patches
+         │           └── deployment.yaml
+         ├── province
+         │   └── roma
+         │       ├── kustomization.yaml
+         │       └── patches
+         │           └── deployment.yaml
+         └── region
+             ├── base
+             │   └── kustomization.yaml
+             └── lazio
+                 ├── kustomization.yaml
+                 └── patches
+                     └── deployment.yaml
 ```
 
 * In *base* folder we define common resources.
