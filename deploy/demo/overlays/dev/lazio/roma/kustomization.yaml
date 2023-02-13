@@ -1,7 +1,5 @@
 bases:
 - ../../../../base
-- ../../../../overlays/dev
-- ../../../../overlays/dev/lazio
 
 patchesStrategicMerge:
   - patches/deployment.yaml
