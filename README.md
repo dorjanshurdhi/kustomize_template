@@ -4,9 +4,23 @@ Kustomize: kubernetes native configuration management
 
 ## Pre-requisits
 
-Install kustomize:
+Install kustomize with GO:
 
 `$ go get sigs.k8s.io/kustomize`
+
+Install kustomize Binaries:
+`$ curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash`
+
+Install kustomize with Docker:
+`$ docker pull k8s.gcr.io/kustomize/kustomize:v3.8.7`
+`$ docker run k8s.gcr.io/kustomize/kustomize:v3.8.7 version`
+
+Homebrew / MacPorts
+`$ brew install kustomize`
+`$ sudo port install kustomize`
+
+Chocolatey
+`$ choco install kustomize`
 
 ## General
 
