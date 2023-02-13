@@ -2,7 +2,9 @@ bases:
 - ../../../../base
 
 patchesStrategicMerge:
-  - patches/deployment.yaml
-  - ../patches/deployment.yaml
   - ../../patches/deployment.yaml
+  - ../patches/deployment.yaml
+  - patches/deployment.yaml
+
+
 
