@@ -1,0 +1,4 @@
+bases:
+- ../roma
+patchesStrategicMerge:
+- deployment.yaml
