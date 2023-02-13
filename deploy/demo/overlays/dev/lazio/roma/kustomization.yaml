@@ -1,5 +1,7 @@
 bases:
-- ../roma
+- ../../../../base
+- ../../../dev
+- ../../lazio
 
 patchesStrategicMerge:
   - patches/deployment.yaml
