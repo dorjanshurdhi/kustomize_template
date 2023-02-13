@@ -1,0 +1,8 @@
+bases:
+- ../../province/roma
+
+patchesStrategicMerge:
+  - patches/deployment.yaml
+
+
+

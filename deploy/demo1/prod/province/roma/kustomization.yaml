@@ -1,0 +1,8 @@
+bases:
+- ../../region/lazio
+
+patchesStrategicMerge:
+  - patches/deployment.yaml
+
+
+
