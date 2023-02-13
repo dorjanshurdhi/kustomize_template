@@ -29,46 +29,48 @@ File system approach :
         |        |    ├── deployment.yaml
         │        |    └── kustomization.yaml
         |        | 
-        |        ├── province 1 
+        |        ├── province 1
         |        |    ├── patches
         |        |    ├── deployment.yaml
         │        |    ├── kustomization.yaml
         |        |    ├── municipality 1 
         |        |    |    ├── patches
         |        |    |    ├── deployment.yaml
+        |        |    |    |
         │        |    |    └── kustomization.yaml
+        |        |    |
         |        |    ├── municipality 2 
         |        |    |    ├── patches
         |        |    |    ├── deployment.yaml
-        │        |    |    └── kustomization.yaml
-        |        |    ├── municipality n 
-        |        |    |          ├── patches
-        |        |    |          ├── deployment.yaml
-        │        |    |          └── kustomization.yaml
+        │        |    |    |
+        |        |    |    └── kustomization.yaml
         |        |    |
-        |        |    |
-        |        |    └── kustomization.yaml
+        |        |    └── municipality n 
+        |        |              ├── patches
+        |        |              ├── deployment.yaml
+        │        |              └── kustomization.yaml
         |        |
         |        |
         |        ├── province 2
         |        |    ├── patches
         |        |    ├── deployment.yaml
-        │        |    ├──  kustomization.yaml
+        │        |    ├── kustomization.yaml
         |        |    ├── municipality 1 
         |        |    |    ├── patches
         |        |    |    ├── deployment.yaml
+        |        |    |    |
         │        |    |    └── kustomization.yaml
+        |        |    |
         |        |    ├── municipality 2 
         |        |    |    ├── patches
         |        |    |    ├── deployment.yaml
-        │        |    |    └── kustomization.yaml
-        |        |    ├── municipality n 
-        |        |    |          ├── patches
-        |        |    |          ├── deployment.yaml
-        │        |    |          └── kustomization.yaml
+        │        |    |    |
+        |        |    |    └── kustomization.yaml
         |        |    |
-        |        |    |
-        |        |    └── kustomization.yaml
+        |        |    └── municipality n 
+        |        |              ├── patches
+        |        |              ├── deployment.yaml
+        │        |              └── kustomization.yaml
         |        |
         |        ├── province n
         |        |    ├── patches
@@ -77,11 +79,15 @@ File system approach :
         |        |    ├── municipality 1 
         |        |    |    ├── patches
         |        |    |    ├── deployment.yaml
+        |        |    |    |
         │        |    |    └── kustomization.yaml
+        |        |    |
         |        |    ├── municipality 2 
         |        |    |    ├── patches
         |        |    |    ├── deployment.yaml
-        │        |    |    └── kustomization.yaml
+        │        |    |    |
+        |        |    |    └── kustomization.yaml
+        |        |    |
         |        |    └── municipality n 
         |        |              ├── patches
         |        |              ├── deployment.yaml
